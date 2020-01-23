@@ -71,3 +71,8 @@ font-size: calc(7px + 1.2vw);
 .about-me-font {
 font-size: calc(9px + .7vw);
 }
+
+
+.button-font {
+font-size: calc(7px + .7vw);
+}
