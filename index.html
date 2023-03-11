@@ -86,13 +86,11 @@
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             ctx.fillStyle = "white";
             ctx.beginPath();
-            ctx.arc(rect.left + 200, rect.top + 100, radius, 0, 2 * Math.PI);
+            ctx.arc(Math.ceil(rect.left) + 200, Math.ceil(rect.top) + 100, radius, 0, 2 * Math.PI);
             ctx.rect(width, 0, -width, height);
             ctx.fill();
 
-
             radius += radiusAddition;
-
             if (radius < 1200) {
                 requestAnimationFrame(draw);
             } else {
