@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@900&display=swap');
+
+html, body {
+    margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    font-family: 'Lexend', sans-serif;
+}
+
+body {
+    line-height: 1;
+    background-color: #ffc200;
+    color: #c90030;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+#title-container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+#main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: calc(10px + 2vmin);
+    position: absolute;
+    width: 100%;
+}
+
+canvas {
+    position: absolute;
+}
+
+#first-name, #last-name {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#more-info:hover {
+    text-decoration: underline;
+    cursor: pointer
+}
+
+
+#more-info-details {
+    display: none;
+    position: relative;
+    margin-bottom: 100px;
+}
+
+#resume:hover, #linkedin:hover, #github:hover {
+    text-decoration: underline;
+}
+
+.resume-animation {
+    -webkit-animation-name: go-right;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.linkedin-animation {
+    -webkit-animation-name: go-down;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.github-animation {
+    -webkit-animation-name: go-left;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+    -webkit-animation-fill-mode: forwards;
+}
+
+  @-webkit-keyframes go-right {
+    from {
+      -webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(10vw, 6vh);
+    }
+    to {
+      -webkit-transform: rotate(0deg) scale(2) skew(0deg) translate(10vw, 6vh);
+    }
+  }
+  
+
+  @-webkit-keyframes go-left {
+    from {
+      -webkit-transform: rotate(0deg) scale(1) skew(0deg) translate(-10vw, -6vh);
+    }
+    to {
+      -webkit-transform: rotate(0deg) scale(2) skew(0deg) translate(-10vw, -6vh);
+    }
+  }
+
+  @-webkit-keyframes go-down {
+    from {
+      -webkit-transform: rotate(0deg) scale(1) skew(0deg);
+    }
+    to {
+      -webkit-transform: rotate(0deg) scale(2) skew(0deg);
+    }
+  }

@@ -1,36 +1,119 @@
+<!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
     <title>Bryce Schultz</title>
-  <style>
-   .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 20%;
-  }
-  </style>
   </head>
   <body>
-      
-    <h1 style="text-align: center;">Bryce Schultz</h1>
-    <img src="linkedin-image.png" style="max-width:100%;height:auto;" class="center">
-    
-    <br>
-    <h3>Projects</h3>
-    <ul>
-      <li><a href="https://github.com/bryceschultz/AlgoGen">AlgoGen</a></li>
-      <li><a href="https://github.com/bryceschultz/AlgorandTransactionCenter">AlgorandTransactionCenter</a></li>
-      <li><a href="https://github.com/bryceschultz/ModelBuilder">Linear Regression Model Builder</a></li>
-    </ul>
-    
-    <br>
-    <h3>Areas of interest</h3>
-    <ul>
-      <li>Machine learning</li>
-      <li>Blockchain/crypto</li>
-    </ul>
-    </body>
+    <div id="main-container">
+        <div id="title-container">
+            <h1>
+                <span id="first-name" style="transform: translate3d(0%, 0%, 0px); margin-top: 100px">
+                    <span style="transform: translate3d(0px, 0%, 0px);">B</span>
+                    <span style="transform: translate3d(0px, 0%, 0px);">R</span>
+                    <span style="transform: translate3d(0px, 0%, 0px);">Y</span>
+                    <span style="transform: translate3d(0px, 0%, 0px);">C</span>
+                    <span style="transform: translate3d(0px, 0%, 0px);">E</span>
+                </span>
+                <span id="last-name" style="transform: translate3d(0%, 0%, 0px);">
+                    <span style="transform: translate3d(0px, 0%, 0px);">S</span>
+                    <span style="transform: translate3d(0px, 0%, 0px);">C</span>
+                    <span style="transform: translate3d(0px, 0%, 0px);">H</span>
+                    <span style="transform: translate3d(0px, 0%, 0px);">U</span>
+                    <span style="transform: translate3d(0px, 0%, 0px);">L</span>
+                    <span style="transform: translate3d(0px, 0%, 0px);">T</span>
+                    <span style="transform: translate3d(0px, 0%, 0px);">Z</span>
+                </span>
+            </h1>
+            <img id="peep" src="./peep.png">
+            <h5>
+                <span style="color:black;" style="transform: translate3d(0%, 0%, 0px);">
+                    Software Engineer
+                </span>
+            </h5>
+            <h5 id="more-info">
+                <span  style="color:black;" style="transform: translate3d(0%, 0%, 0px);">
+                    More info
+                </span>
+            </h5>
+            <div id="more-info-details">
+                <h5 id="resume">
+                    <a href="https://bryceschultz.github.io/resume">
+                        resume
+                    </a>
+                </h5>
+                <h5 id="linkedin">
+                    <a href="https://www.linkedin.com/in/bryceschultz">
+                        linkedin
+                    </a>
+                </h5>
+                <h5 id="github">
+                    <a href="https://www.github.com/bryceschultz">
+                        github
+                    </a>
+                </h5>
+            </div>
+        </div>
+    <canvas style="position:absolute" id="canvas"></canvas>
+    </div>
+    <script>
+        const delay = (delayInms) => {
+            return new Promise(resolve => setTimeout(resolve, delayInms));
+        }
+
+        var radius = 10;
+        var color = 0;
+
+        const width = window.innerWidth; 
+        const height = window.innerHeight;
+        const canvas = document.getElementById('canvas');
+        canvas.width = width;
+        canvas.height = height;
+        const ctx = canvas.getContext('2d');
+        const nameElement = document.getElementById('peep')
+        const rect = nameElement.getBoundingClientRect();
+
+        async function draw() {
+            let radiusAddition = 2;
+            if (radius === 94) {
+                let delayres = await delay(1000);
+            } else if (radius > 100) {
+                radiusAddition = 5;
+            }
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = "white";
+            ctx.beginPath();
+            ctx.arc(rect.left + 200, rect.top + 100, radius, 0, 2 * Math.PI);
+            ctx.rect(width, 0, -width, height);
+            ctx.fill();
+
+
+            radius += radiusAddition;
+
+            if (radius < 1200) {
+                requestAnimationFrame(draw);
+            } else {
+                canvas.style.display = "none";
+            }
+        }
+        draw();
+
+        const moreInfo = document.getElementById('more-info')
+        const moreInfoDetails = document.getElementById('more-info-details')
+        const resume = document.getElementById('resume')
+        const linkedin = document.getElementById('linkedin')
+        const github = document.getElementById('github')
+
+        moreInfo.addEventListener("click", function() {
+            moreInfo.style.display = "none";
+            moreInfoDetails.style.display = "block";
+            resume.classList.add("resume-animation");
+            linkedin.classList.add("linkedin-animation");
+            github.classList.add("github-animation");
+        });
+    </script>
+  </body>
 </html>
