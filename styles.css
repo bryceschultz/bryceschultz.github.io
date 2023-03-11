@@ -29,7 +29,10 @@ a {
     align-items: center;
 }
 
-
+#job-title {
+  color:black; 
+  margin-top: 0;
+}
 
 #main-container {
     min-height: 100vh;
@@ -116,4 +119,18 @@ canvas {
     to {
       -webkit-transform: rotate(0deg) scale(2) skew(0deg);
     }
+  }
+
+
+  @media screen and (max-width: 500px) {
+    #peep {
+      width: 50vw;
+    }
+    #job-title {
+      margin-top: 30px;
+    }
+    #more-info-details {
+      margin-top: 50px;
+    }
+
   }

@@ -28,7 +28,7 @@
                 </span>
             </h1>
             <img id="peep" src="./peep.png">
-            <h5 style="color:black; margin-top:0">
+            <h5 id="job-title">
                 <span>
                     Software Engineer
                 </span>
@@ -74,12 +74,14 @@
         const ctx = canvas.getContext('2d');
         const nameElement = document.getElementById('peep')
         const rect = nameElement.getBoundingClientRect();
+        let radiusAddition = 2;
 
         async function draw() {
-            let radiusAddition = 2;
-            if (radius === 94) {
-                let delayres = await delay(1000);
-            } else if (radius > 100) {
+            if (radius === 94 && width > 500) {
+                await delay(1000);
+                radiusAddition = 14;
+            } else if (radius === 54 && width <= 500) {
+                await delay(1000);
                 radiusAddition = 14;
             }
 
@@ -88,7 +90,11 @@
             ctx.fillRect(0, 0, width, height);
             ctx.globalCompositeOperation='destination-out';
             ctx.beginPath();
-            ctx.arc(Math.ceil(rect.left) + 200, Math.ceil(rect.top) + 100, radius, 0, 2 * Math.PI);
+            if (width < 500) {
+                ctx.arc(Math.ceil(rect.left) + 103, Math.ceil(rect.top) + 55, radius, 0, 2 * Math.PI);
+            } else {
+                ctx.arc(Math.ceil(rect.left) + 210, Math.ceil(rect.top) + 105, radius, 0, 2 * Math.PI);
+            }
             ctx.closePath();
             ctx.fill();   
 
