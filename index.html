@@ -28,13 +28,13 @@
                 </span>
             </h1>
             <img id="peep" src="./peep.png">
-            <h5>
-                <span style="color:black;" style="transform: translate3d(0%, 0%, 0px);">
+            <h5 style="color:black; margin-top:0">
+                <span>
                     Software Engineer
                 </span>
             </h5>
-            <h5 id="more-info">
-                <span  style="color:black;" style="transform: translate3d(0%, 0%, 0px);">
+            <h5 id="more-info" style="color:black;">
+                <span>
                     More info
                 </span>
             </h5>
@@ -80,19 +80,19 @@
             if (radius === 94) {
                 let delayres = await delay(1000);
             } else if (radius > 100) {
-                radiusAddition = 7;
+                radiusAddition = 14;
             }
 
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            canvas.style.display = "none";
-            canvas.offsetHeight;
-            canvas.style.display = "inherit";
-            ctx.fillStyle = "white";
+            ctx.fillStyle='white'
+            ctx.fillRect(0, 0, width, height);
+            ctx.globalCompositeOperation='destination-out';
             ctx.beginPath();
             ctx.arc(Math.ceil(rect.left) + 200, Math.ceil(rect.top) + 100, radius, 0, 2 * Math.PI);
-            ctx.rect(width, 0, -width, height);
-            ctx.fill();
+            ctx.closePath();
+            ctx.fill();   
 
+            ctx.globalCompositeOperation='source-over';
             radius += radiusAddition;
             if (radius < 1200) {
                 requestAnimationFrame(draw);

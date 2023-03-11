@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Lexend:wght@900&display=swap');
 
 html, body {
-    margin: 0;
+  margin: 0;
 	padding: 0;
 	border: 0;
 	font-size: 100%;
@@ -60,7 +60,6 @@ canvas {
 #more-info-details {
     display: none;
     position: relative;
-    margin-bottom: 100px;
 }
 
 #resume:hover, #linkedin:hover, #github:hover {
