@@ -70,7 +70,7 @@
         const height = window.innerHeight;
         const canvas = document.getElementById('canvas');
         canvas.width = width;
-        canvas.height = height;
+        canvas.height = height + 100;
         const ctx = canvas.getContext('2d');
         const nameElement = document.getElementById('peep')
         const rect = nameElement.getBoundingClientRect();
@@ -85,9 +85,9 @@
                 radiusAddition = 14;
             }
 
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.clearRect(0, 0, width, height + 200);
             ctx.fillStyle='white'
-            ctx.fillRect(0, 0, width, height);
+            ctx.fillRect(0, 0, width, height + 200);
             ctx.globalCompositeOperation='destination-out';
             ctx.beginPath();
             if (width < 500) {
