@@ -3,124 +3,40 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
     <title>Bryce Schultz</title>
   </head>
   <body>
-    <div id="main-container">
-        <div id="title-container">
-            <h1>
-                <span id="first-name" style="margin-top: 60px">
-                    <span>B</span>
-                    <span>R</span>
-                    <span>Y</span>
-                    <span>C</span>
-                    <span>E</span>
-                </span>
-                <span id="last-name">
-                    <span>S</span>
-                    <span>C</span>
-                    <span>H</span>
-                    <span>U</span>
-                    <span>L</span>
-                    <span>T</span>
-                    <span>Z</span>
-                </span>
-            </h1>
-            <img id="peep" src="./peep.png">
-            <h5 id="job-title">
-                <span>
-                    Software Engineer
-                </span>
-            </h5>
-            <h5 id="more-info" style="color:black;">
-                <span>
-                    More info
-                </span>
-            </h5>
-            <div id="more-info-details">
-                <h5 id="resume">
-                    <a href="https://bryceschultz.github.io/resume">
-                        resume
-                    </a>
-                </h5>
-                <h5 id="linkedin">
-                    <a href="https://www.linkedin.com/in/bryceschultz">
-                        linkedin
-                    </a>
-                </h5>
-                <h5 id="github">
-                    <a href="https://www.github.com/bryceschultz">
-                        github
-                    </a>
-                </h5>
+    <div id="root">
+    <div class="center">
+        <div class="screenBox">
+          <div class="frame">
+            <div class="screenBox2">
+              <div class="screenBox3">
+                <div class="screen">
+                  <div id="output">
+                  </div>
+                </div>
+              </div>
             </div>
+          </div>
+          <div class="bottomFrame">
+            <div class="fan">
+            </div>
+            <img class="logo" src="http://www.icone-png.com/png/52/51692.png" />
+            <div class="powerSection">
+              <div id="powerLight" class="powerLight lightOff">
+              </div>
+              <div id="powerButton" onClick="turnOnOrOff()" class="powerButton">
+                <div class="powerIcon">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    <canvas id="canvas"></canvas>
+      </div>
     </div>
-    <script>
-        const delay = (delayInms) => {
-            return new Promise(resolve => setTimeout(resolve, delayInms));
-        }
-
-        var radius = 10;
-        var color = 0;
-
-        const width = window.innerWidth; 
-        const height = window.innerHeight;
-        const canvas = document.getElementById('canvas');
-        canvas.width = width;
-        canvas.height = height + 100;
-        const ctx = canvas.getContext('2d');
-        const nameElement = document.getElementById('peep')
-        const rect = nameElement.getBoundingClientRect();
-        let radiusAddition = 2;
-
-        async function draw() {
-            if (radius === 94 && width > 500) {
-                await delay(1000);
-                radiusAddition = 14;
-            } else if (radius === 54 && width <= 500) {
-                await delay(1000);
-                radiusAddition = 14;
-            }
-
-            ctx.clearRect(0, 0, width, height + 200);
-            ctx.fillStyle='white'
-            ctx.fillRect(0, 0, width, height + 200);
-            ctx.globalCompositeOperation='destination-out';
-            ctx.beginPath();
-            if (width < 500) {
-                ctx.arc(Math.ceil(rect.left) + 103, Math.ceil(rect.top) + 55, radius, 0, 2 * Math.PI);
-            } else {
-                ctx.arc(Math.ceil(rect.left) + 210, Math.ceil(rect.top) + 105, radius, 0, 2 * Math.PI);
-            }
-            ctx.closePath();
-            ctx.fill();   
-
-            ctx.globalCompositeOperation='source-over';
-            radius += radiusAddition;
-            if (radius < 1200) {
-                requestAnimationFrame(draw);
-            } else {
-                canvas.style.display = "none";
-            }
-        }
-        draw();
-
-        const moreInfo = document.getElementById('more-info')
-        const moreInfoDetails = document.getElementById('more-info-details')
-        const resume = document.getElementById('resume')
-        const linkedin = document.getElementById('linkedin')
-        const github = document.getElementById('github')
-
-        moreInfo.addEventListener("click", function() {
-            moreInfo.style.display = "none";
-            moreInfoDetails.style.display = "block";
-            resume.classList.add("resume-animation");
-            linkedin.classList.add("linkedin-animation");
-            github.classList.add("github-animation");
-        });
-    </script>
+    <script src="cpuControl.js"></script>
   </body>
 </html>
