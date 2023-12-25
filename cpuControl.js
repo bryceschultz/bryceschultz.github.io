@@ -177,7 +177,7 @@ const input = (drive, inputNum) => {
             } else if (userInput.value === "ls") {
                 listFolder(drive, userInputContainer, inputNum);
             } else {
-                handleUnknownInput();
+                handleUnknownInput(drive, userInputContainer, inputNum);
             }
         }
     })
@@ -225,7 +225,7 @@ const listFolder = (drive, userInputContainer, inputNum) => {
     input(drive, inputNum + 1);
 }
 
-handleUnknownInput = () => {
+handleUnknownInput = (drive, userInputContainer, inputNum) => {
     const response = document.createElement("p");
     response.style.width = "100%";
     response.innerHTML = "hmm not too sure what you mean by that, try again";

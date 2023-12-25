@@ -208,4 +208,15 @@ p {
     p, .terminalInput {
         font-size: 20px;
     }
+    .powerIcon {
+        width: 15px;
+        height: 20px;
+    }
+    .screenBox .powerButton {
+        width: 20px;
+        height: 30px;
+    }
+    .powerSection {
+        margin-right:10px;
+    }
   }
