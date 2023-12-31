@@ -141,7 +141,7 @@ const input = (drive, inputNum) => {
     const userInputContainer = document.createElement("div");
     userInputContainer.id = `userInputContainer${inputNum}`;
     userInputContainer.style.display = "flex";
-    userInputContainer.style.flexDirection = "row";
+    userInputContainer.style.alignItems = "center";
     userInputContainer.style.flexWrap = "wrap";
 
     const currentDirectory = document.createElement("p");
